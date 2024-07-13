@@ -18,8 +18,8 @@ public class ReviewController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> addReview(@PathVariable String companyId, @RequestBody Review review) {
-        boolean isReviewSaved = reviewService.addReview(companyId, review);
+    public ResponseEntity<String> addReview(@RequestBody Review review) {
+        boolean isReviewSaved = reviewService.addReview(review);
         if (isReviewSaved)
             return new ResponseEntity<>("Review Added Successfully", HttpStatus.OK);
         else

@@ -35,9 +35,9 @@ public class ReviewService {
     }
 
     
-    public boolean addReview(String companyId, Review review) {
+    public boolean addReview(Review review) {
         try {
-            Company company = getCompany(companyId);
+            Company company = getCompany(review.getCompanyId());
             if(company != null){
                 review.setCompanyId(company.getId());
                 reviewRepository.save(review);
